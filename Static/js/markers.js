@@ -1,5 +1,5 @@
 // Creating the map object
-var NYPDMap = L.map("map", {
+var map = L.map("map", {
     center: [40.7128, -74.0059],
     zoom: 11
   });
@@ -7,7 +7,7 @@ var NYPDMap = L.map("map", {
   // Adding the tile layer
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(NYPDMap);
+  }).addTo(map);
 
 // GeoJSON data link for neighborhood info
 var link = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/15-Mapping-Web/nyc.geojson";
@@ -59,46 +59,30 @@ d3.json(link).then(function(data) {
           },
         });
         // Giving each feature a popup with information that's relevant to it
-        layer.bindPopup("<h1>" + feature.properties.neighborhood + "</h1> <hr> <h2>" + feature.properties.borough + "</h2>");
+        // layer.bindPopup("<h1>" + feature.properties.neighborhood + "</h1> <hr> <h2>" + feature.properties.borough + "</h2>");
   
       }
-    }).addTo(NYPDMap);
+    }).addTo(map);
   });
   
 // // Add NYPD shooting data to map
 var shootings = "https://data.cityofnewyork.us/resource/833y-fsy8.json";
 
-// d3.json(shootings).then(function(response) {
-
-//   for (var i = 0; i < response.length; i++) {
-//     var location = response[i].geocoded_column;
-
-//     if (location) {
-//       L.marker([location.coordinates[1], location.coordinates[0]]).addTo(NYPDMap);
-//     }
-//   }
-// });
-  
-// Add Heatmap to show concentration of shootings
 d3.json(shootings).then(function(response) {
-
-  console.log(response);
-
-  var heatArray = [];
 
   for (var i = 0; i < response.length; i++) {
     var location = response[i].geocoded_column;
 
-    console.log(location)
-
     if (location) {
-      heatArray.push([location.coordinates[1], location.coordinates[0]]);
+      // Creates a red marker with the coffee icon
+      var Marker = L.AwesomeMarkers.icon({
+        icon: 'medkit',
+        markerColor: 'darkred'
+      });
+      
+    L.marker([location.coordinates[1], location.coordinates[0]], {icon: Marker}).addTo(map);
+      
     }
   }
-
-  var heat = L.heatLayer(heatArray, {
-    radius: 20,
-    blur: 35
-  }).addTo(NYPDMap);
-
 });
+  
