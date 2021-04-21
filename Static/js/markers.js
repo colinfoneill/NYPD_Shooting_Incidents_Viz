@@ -65,18 +65,40 @@ d3.json(link).then(function(data) {
     }).addTo(NYPDMap);
   });
   
-// Add NYPD shooting data to map
+// // Add NYPD shooting data to map
 var shootings = "https://data.cityofnewyork.us/resource/833y-fsy8.json";
 
+// d3.json(shootings).then(function(response) {
+
+//   for (var i = 0; i < response.length; i++) {
+//     var location = response[i].geocoded_column;
+
+//     if (location) {
+//       L.marker([location.coordinates[1], location.coordinates[0]]).addTo(NYPDMap);
+//     }
+//   }
+// });
+  
+// Add Heatmap to show concentration of shootings
 d3.json(shootings).then(function(response) {
+
+  console.log(response);
+
+  var heatArray = [];
 
   for (var i = 0; i < response.length; i++) {
     var location = response[i].geocoded_column;
 
+    console.log(location)
+
     if (location) {
-      L.marker([location.coordinates[1], location.coordinates[0]]).addTo(NYPDMap);
+      heatArray.push([location.coordinates[1], location.coordinates[0]]);
     }
   }
+
+  var heat = L.heatLayer(heatArray, {
+    radius: 20,
+    blur: 35
+  }).addTo(NYPDMap);
+
 });
-  
-// Add heatmap
