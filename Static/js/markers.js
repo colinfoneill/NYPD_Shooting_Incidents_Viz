@@ -1,7 +1,7 @@
 // Creating the map object
 var map = L.map("map", {
   center: [40.7128, -74.0059],
-  zoom: 11
+  zoom: 10
 });
 
 // Adding the tile layer
@@ -39,7 +39,7 @@ d3.json(link).then(function(data) {
         fillColor: chooseColor(feature.properties.borough),
         fillOpacity: 0.5,
         weight: 1.5
-      };
+      }
     }
   }).addTo(map);
 });
@@ -56,13 +56,10 @@ for (var i = 0; i < response.length; i++) {
 
   if (location) {
     L.marker([location.coordinates[1], location.coordinates[0]])
-    .bindPopup("<h1>Incident: " + response[i].incident_key + "</h1> <hr> <h3>Date: " + response[i].occur_date.slice(0,10) + "<h3>Time: " + response[i].occur_time 
-    + "</h3>" +"<h3>Borough: " + response[i].boro + "</h3>" + "</h3>" + "<h3>Precinct: " + response[i].precinct + "</h3>" + "<h3>Victim Age: " 
-    + response[i].vic_age_group + "</h3>" + "<h3>Victim Sex: " + response[i].vic_sex + "</h3>" + "<h3>Victim Race: " + response[i].vic_race)
+    .bindPopup("<h3>Incident: " + response[i].incident_key + "</h3> <hr/> <h4>Date: " + response[i].occur_date.slice(0,10) + "<h4>Time: " + response[i].occur_time.slice(0,5) 
+    + "</h4>" +"<h4>Borough: " + response[i].boro + "</h4>" + "</h4>" + "<h4>Precinct: " + response[i].precinct + "</h4>" + "<h4>Victim Age: " 
+    + response[i].vic_age_group + "</h4>" + "<h4>Victim Sex: " + response[i].vic_sex + "</h4>" + "<h4>Victim Race: " + response[i].vic_race, {maxWidth: 200, maxHeight: 200})
     .addTo(map);
   }
 }
 });                                               
-
-
-
