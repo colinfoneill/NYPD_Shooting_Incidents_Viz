@@ -69,7 +69,12 @@ body {
     margin: 0px;
   }
   
-  #map,
+  #map {
+    height: 350px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
   body,
   html {
     height: 100%;
