@@ -58,9 +58,7 @@ d3.json(link).then(function(data) {
             });
           },
         });
-        // Giving each feature a popup with information that's relevant to it
-        // layer.bindPopup("<h1>" + feature.properties.neighborhood + "</h1> <hr> <h2>" + feature.properties.borough + "</h2>");
-  
+
       }
     }).addTo(map);
   });
@@ -70,19 +68,15 @@ var shootings = "https://data.cityofnewyork.us/resource/833y-fsy8.json";
 
 d3.json(shootings).then(function(response) {
 
+  console.log(response);
+
   for (var i = 0; i < response.length; i++) {
     var location = response[i].geocoded_column;
 
     if (location) {
-      // Creates a red marker with the coffee icon
-      var Marker = L.AwesomeMarkers.icon({
-        icon: 'medkit',
-        markerColor: 'darkred'
-      });
-      
-    L.marker([location.coordinates[1], location.coordinates[0]], {icon: Marker}).addTo(map);
-      
+      L.marker([location.coordinates[1], location.coordinates[0]]).addTo(map);
     }
   }
 });
-  
+
+
