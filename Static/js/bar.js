@@ -233,56 +233,95 @@ d3.json(link).then(function(data) {
         console.log("Unknown Perp Count: " + unknownPerpCount);
 
     //use length function on each vicAge array to get a count on vic age groups
-    vic18Count = vic18.length
+    var vic18Count = vic18.length
         console.log("Victim Age <18 Count: " + vic18Count)
 
-    vic24Count = vic24.length
+    var vic24Count = vic24.length
         console.log("Victim Age 18-24 Count: " + vic24Count)
     
-    vic44Count = vic44.length
+    var vic44Count = vic44.length
         console.log("Victim Age 25-44 Count: " + vic44Count)
 
-    vic64Count = vic64.length
+    var vic64Count = vic64.length
         console.log("Victim Age 45-64 Count: " + vic64Count)
 
-    vic100Count = vic100.length
+    var vic100Count = vic100.length
         console.log("Victim Age 65+ Count: " + vic100Count)
 
-    vicAgeUnknownCount = vicAgeUnknown.length
+    var vicAgeUnknownCount = vicAgeUnknown.length
         console.log("Victim Age Unknown Count: " + vicAgeUnknownCount)
 
     //use length function on each perpAge array to get a count on perp age groups
-    perp18Count = perp18.length
+    var perp18Count = perp18.length
         console.log("Perp Age <18 Count: " + perp18Count)
 
-    perp24Count = perp24.length
+    var perp24Count = perp24.length
         console.log("Perp Age 18-24 Count: " + perp24Count)
     
-    perp44Count = perp44.length
+    var perp44Count = perp44.length
         console.log("Perp Age 25-44 Count: " + perp44Count)
 
-    perp64Count = perp64.length
+    var perp64Count = perp64.length
         console.log("Perp Age 45-64 Count: " + perp64Count)
 
-    perp100Count = perp100.length
+    var perp100Count = perp100.length
         console.log("Perp Age 65+ Count: " + perp100Count)
 
-    perpAgeUnknownCount = perpAgeUnknown.length
+    var perpAgeUnknownCount = perpAgeUnknown.length
         console.log("Perp Age Unknown Count: " + perpAgeUnknownCount)
 
+    //plot a bar chart upon loading up the webpage
+    var traceD = {
+        x: ["Black", "Black Hispanic", "White Hispanic", "White", "Asian", "Unknown"],
+        y: [blackCount, blackHispanicCount, whiteHispanicCount, whiteCount, asianCount, unknownCount],
+        type: "bar"
+    };
+
+    plot = [traceD]
+
+    Plotly.newPlot("bar-plot", plot)
+
     //add options to the dropdown menu
+    options = ["Victim Race", "Victim Age", "Perpetrator Race", "Perpetrator Age", "Borough"]
+    
+    options.forEach(function(value) {
+        
+        var dropDown = d3.select("#selAttribute")
+        var selection = dropDown.append("option");
+        selection.attr("value", value);
+        selection.text(value);
+
+    });
+    
+    
+    //write a function to display different graphs upon change of the dropdown menu selection
+    function optionChanged() {
+        //use d3 to select the drop down menu
+        var drowDownMenu = d3.selectAll("#selAttribute");
+
+        //assign the value of the drop down menu selection to a variable
+        var selection = dropDownMenu.property("value");
+
+        //check which dataset matches the selection using an if statement
+        if (selection == "Victim Age") {
+            var traceVA = {
+                x: ["Black", "Black Hispanic", "White Hispanic", "White", "Asian", "Unknown"],
+                y: [blackCount, blackHispanicCount, whiteHispanicCount, whiteCount, asianCount, unknownCount],
+                type: "bar"
+            };
+        
+            plot = [traceVA]
+        
+            Plotly.newPlot("bar-plot", plot)
+        }
+    };
 
 
 });
 
-options = ["Victim Race", "Victim Age", "Perpetrator Race", "Perpetrator Age","Borough"]
-    
-options.forEach(function(option) {
-    
-    var dropDown = d3.select("#selAtrribute")
-    console.log(dropDown)
-    var selection = dropDown.append("option");
-    console.log(selection)
-    selection.attr("value", option);
-    selection.text(option);
-});
+
+
+
+
+
+

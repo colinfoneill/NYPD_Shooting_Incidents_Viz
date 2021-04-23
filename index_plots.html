@@ -2,7 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>NYPD Shootings</title>
+    <title>NYC Shootings</title>
 
     <!-- Leaflet CSS -->
     <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
@@ -29,11 +29,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-12 jumbotron text-center">
+          <h1>NYPD Shooting Incident Dashboard</h1>
+          <p>Use the interactive dropdown menu below to explore the dataset</p>
+        </div>
 
-    <!-- chart div and dropdown menu-->
-    <div id="bar-plot"></div>
-    <select id="selAttribute"></select>
+      </div>
+      <div class="row">
 
+        <!-- chart div and dropdown menu-->
+        <div id="bar-plot"></div>
+        <select id="selAttribute"></select>
+
+      </div>
+
+
+      
+    </div>
     <!-- JavaScript file -->
     <script type="text/javascript" src="static/js/bar.js"></script>
     
