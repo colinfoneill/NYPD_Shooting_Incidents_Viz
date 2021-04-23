@@ -19,22 +19,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"
     integrity="sha512-L5K9Bf852XyB+wrvRFGwWzfhVI+TZqJlgwzX9yvrfhILuzIZfrcQO4au9D9eVDnkQ6oqYr9v2QwJdFo+eKE50Q=="
     crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/4511f769d9.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <nav id="navbar" class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">NYPD Shooting Incidents 2006-2019 </a>
+    <nav id="navbar" class="navbar navbar-light" style= "background-color: #192081;">
+      <a id="navbartitle" class="navbar-brand" href="#">NYPD Shooting Incidents 2006-2019 </a>
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" href="#MapNav">Map</a>
+          <a class="nav-link" href="#MapNav"><i class="fas fa-map-marked"></i> Map</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#BarChartNav">Bar Chart</a>
+          <a class="nav-link" href="#BarChartNav"><i class="fas fa-chart-bar"></i> Bar Chart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#PieChartNav">Pie Chart</a>
+          <a class="nav-link" href="#PieChartNav"><i class="fas fa-chart-pie"></i> Pie Chart</a>
         </li>
-          </div>
         </li>
       </ul>
     </nav>
@@ -43,7 +44,7 @@
     </header>
     <main>
       <div data-spy="scroll" data-target="#navbar" data-offset="0">
-        <h4 id="MapNav">Map</h4>         
+        <h4 id="MapNav"></h4>         
         <article class="post">
         <h3>Interactive map of shooting incidents </h3>
           <p>
@@ -51,11 +52,10 @@
             User can filter by year/month to change the heatmap and see how time of year impacts crime prevalence. 
             In addition, the user can understand how crime has changed overtime. 
           </p>
-
         </article>
                <!-- map div -->
           <div id="map"></div>
-        <h4 id="BarChartNav">Bar Chart</h4>
+        <h4 id="BarChartNav"></h4>
         <article class="post">
           <h3> Interactive Bar Chart</h3>
           <p>Bar chart with interactive drop-down menu so the user can choose what variables to display on the webpage. 
@@ -63,7 +63,7 @@
             For example, if the user wanted to see how shooting incidents vary by borough, they could select the “borough” option in a drop-down menu and the bar chart would respond accordingly.
           </p>
         </article>
-        <h4 id="PieChartNav">Pie Chart</h4>
+        <h4 id="PieChartNav"></h4>
         <article class="post">
           <h3>Interactive pie chart </h3>
           <p>Pie chart with interactive drop-down menu so the user can choose what variables to display on the webpage. 

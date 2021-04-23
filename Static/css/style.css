@@ -9,10 +9,20 @@ h1 {
 
 h3 {
   font-size: 20px;
+  font-family:"Monaco";
+  font-style: italic;
 }
 h4 {
-  font-size: 30px;
+  font-size: 20px;
+
 }
+#navbartitle{
+  color:rgb(218, 216, 216);
+  font-size: 25px;
+  font-family: "Monaco";
+}
+
+
 /* Giving our navbar some padding */
 .navbar {
   margin: 0px;
@@ -24,11 +34,11 @@ h4 {
 .navbar li {
   display: inline-block;
   padding: 5px;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
   cursor: pointer;
   background:rgb(218, 216, 216);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 /* Getting rid of the default link styles here */
