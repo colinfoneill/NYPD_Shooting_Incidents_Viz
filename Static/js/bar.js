@@ -297,7 +297,7 @@ d3.json(link).then(function(data) {
     //write a function to display different graphs upon change of the dropdown menu selection
     function optionChanged() {
         //use d3 to select the drop down menu
-        var drowDownMenu = d3.selectAll("#selAttribute");
+        var dropDownMenu = d3.select("#selAttribute");
 
         //assign the value of the drop down menu selection to a variable
         var selection = dropDownMenu.property("value");
@@ -305,18 +305,67 @@ d3.json(link).then(function(data) {
         //check which dataset matches the selection using an if statement
         if (selection == "Victim Age") {
             var traceVA = {
+                x: ["<18", "18-24", "25-44", "45-64", "65+", "Unknown"],
+                y: [vic18Count, vic24Count, vic44Count, vic64Count, vic100Count, vicAgeUnknownCount],
+                type: "bar"
+            };
+        
+            plotVA = [traceVA]
+        
+            Plotly.newPlot("bar-plot", plotVA)
+        }
+
+        else if (selection == "Victim Race") {
+            var traceVR = {
                 x: ["Black", "Black Hispanic", "White Hispanic", "White", "Asian", "Unknown"],
                 y: [blackCount, blackHispanicCount, whiteHispanicCount, whiteCount, asianCount, unknownCount],
                 type: "bar"
             };
         
-            plot = [traceVA]
+            plotVR = [traceVR]
         
-            Plotly.newPlot("bar-plot", plot)
+            Plotly.newPlot("bar-plot", plotVR)
+        }
+
+        else if (selection == "Perpetrator Race") {
+            var tracePR = {
+                x: ["Black", "Black Hispanic", "White Hispanic", "White", "Asian", "Unknown"],
+                y: [blackPerpCount, blackHispanicPerpCount, whiteHispanicPerpCount, whitePerpCount, asianPerpCount, unknownPerpCount],
+                type: "bar"
+            };
+        
+            plotPR = [tracePR]
+        
+            Plotly.newPlot("bar-plot", plotPR)
+        }
+
+        else if (selection == "Perpetrator Age") {
+            var tracePA = {
+                x: ["<18", "18-24", "25-44", "45-64", "65+", "Unknown"],
+                y: [perp18Count, perp24Count, perp44Count, perp64Count, perp100Count, perpAgeUnknownCount],
+                type: "bar"
+            };
+        
+            plotPA = [tracePA]
+        
+            Plotly.newPlot("bar-plot", plotPA) 
+        }
+
+        else {
+            var traceB = {
+                x: ["Queens", "Bronx", "Brooklyn", "Staten Island", "Manhattan"],
+                y: [queensCount, bronxCount, brooklynCount, statenIslandCount, manhattanCount],
+                type: "bar"
+            };
+        
+            plotB = [traceB]
+        
+            Plotly.newPlot("bar-plot", plotB)  
         }
     };
 
-
+    // select the drop down menu to call a function to chart the option selected
+    d3.selectAll("#selAttribute").on("change", optionChanged);
 });
 
 
