@@ -21,6 +21,9 @@
     crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/4511f769d9.js" crossorigin="anonymous"></script>
+
+    <!-- Plotly import-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
 
   <body>
@@ -58,10 +61,13 @@
         <h4 id="BarChartNav"></h4>
         <article class="post">
           <h3> Interactive Bar Chart</h3>
-          <p>Bar chart with interactive drop-down menu so the user can choose what variables to display on the webpage. 
+          <p>Select the dropdown menu to choose what attribute to visualize.</p>
+          <select id="selAttribute"></select>
+          <div id="bar-plot"></div>
+          <!-- <p>Bar chart with interactive drop-down menu so the user can choose what variables to display on the webpage. 
             We would like the user to be able to choose what “variable” they want to see displayed on the chart to see the distribution of shooting incidents. 
             For example, if the user wanted to see how shooting incidents vary by borough, they could select the “borough” option in a drop-down menu and the bar chart would respond accordingly.
-          </p>
+          </p> -->
         </article>
         <h4 id="PieChartNav"></h4>
         <article class="post">
@@ -78,6 +84,7 @@
 
     <!-- JavaScript file -->
     <script type="text/javascript" src="static/js/markers.js"></script>
+    <script type="text/javascript" src="static/js/bar.js"></script> 
  </body>
   
   </html>
