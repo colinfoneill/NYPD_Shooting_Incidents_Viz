@@ -277,9 +277,18 @@ d3.json(link).then(function(data) {
         type: "bar"
     };
 
+    var layout = {
+        xaxis: {
+            title: "<b>Victim Race</b>"
+        },
+        yaxis: {
+            title: "<b>Frequency</b>"
+        }
+    };
+
     plot = [traceD]
 
-    Plotly.newPlot("bar-plot", plot)
+    Plotly.newPlot("bar-plot", plot, layout)
 
     //add options to the dropdown menu
     options = ["Victim Race", "Victim Age", "Perpetrator Race", "Perpetrator Age", "Borough"]
@@ -309,10 +318,19 @@ d3.json(link).then(function(data) {
                 y: [vic18Count, vic24Count, vic44Count, vic64Count, vic100Count, vicAgeUnknownCount],
                 type: "bar"
             };
+
+            var layoutVA = {
+                xaxis: {
+                    title: "<b>Victim Age</b>"
+                },
+                yaxis: {
+                    title: "<b>Frequency</b>"
+                }
+            };
         
             plotVA = [traceVA]
         
-            Plotly.newPlot("bar-plot", plotVA)
+            Plotly.newPlot("bar-plot", plotVA, layoutVA)
         }
 
         else if (selection == "Victim Race") {
@@ -321,10 +339,19 @@ d3.json(link).then(function(data) {
                 y: [blackCount, blackHispanicCount, whiteHispanicCount, whiteCount, asianCount, unknownCount],
                 type: "bar"
             };
+
+            var layoutVR = {
+                xaxis: {
+                    title: "<b>Victim Race</b>"
+                },
+                yaxis: {
+                    title: "<b>Frequency</b>"
+                }
+            };
         
             plotVR = [traceVR]
         
-            Plotly.newPlot("bar-plot", plotVR)
+            Plotly.newPlot("bar-plot", plotVR, layoutVR)
         }
 
         else if (selection == "Perpetrator Race") {
@@ -333,10 +360,19 @@ d3.json(link).then(function(data) {
                 y: [blackPerpCount, blackHispanicPerpCount, whiteHispanicPerpCount, whitePerpCount, asianPerpCount, unknownPerpCount],
                 type: "bar"
             };
+
+            var layoutPR = {
+                xaxis: {
+                    title: "<b>Perpetrator Race</b>"
+                },
+                yaxis: {
+                    title: "<b>Frequency</b>"
+                }
+            };
         
             plotPR = [tracePR]
         
-            Plotly.newPlot("bar-plot", plotPR)
+            Plotly.newPlot("bar-plot", plotPR, layoutPR)
         }
 
         else if (selection == "Perpetrator Age") {
@@ -345,10 +381,19 @@ d3.json(link).then(function(data) {
                 y: [perp18Count, perp24Count, perp44Count, perp64Count, perp100Count, perpAgeUnknownCount],
                 type: "bar"
             };
+
+            var layoutPA = {
+                xaxis: {
+                    title: "<b>Perpetrator Age</b>"
+                },
+                yaxis: {
+                    title: "<b>Frequency</b>"
+                }
+            };
         
             plotPA = [tracePA]
         
-            Plotly.newPlot("bar-plot", plotPA) 
+            Plotly.newPlot("bar-plot", plotPA, layoutPA) 
         }
 
         else {
@@ -357,10 +402,20 @@ d3.json(link).then(function(data) {
                 y: [queensCount, bronxCount, brooklynCount, statenIslandCount, manhattanCount],
                 type: "bar"
             };
+
+            var layoutB = {
+                xaxis: {
+                    title: "<b>Borough</b>"
+                },
+                yaxis: {
+                    title: "<b>Frequency</b>"
+                }
+            };
+
         
             plotB = [traceB]
         
-            Plotly.newPlot("bar-plot", plotB)  
+            Plotly.newPlot("bar-plot", plotB, layoutB)  
         }
     };
 

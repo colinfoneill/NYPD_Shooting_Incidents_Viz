@@ -286,7 +286,7 @@ d3.json(link).then(function(data) {
     
     options.forEach(function(value) {
         
-        var dropDown = d3.select("#selAttribute")
+        var dropDown = d3.select("#selAttributePie")
         var selection = dropDown.append("option");
         selection.attr("value", value);
         selection.text(value);
@@ -295,9 +295,9 @@ d3.json(link).then(function(data) {
     
     
     //write a function to display different graphs upon change of the dropdown menu selection
-    function optionChanged() {
+    function optionChangedPie() {
         //use d3 to select the drop down menu
-        var dropDownMenu = d3.select("#selAttribute");
+        var dropDownMenu = d3.select("#selAttributePie");
 
         //assign the value of the drop down menu selection to a variable
         var selection = dropDownMenu.property("value");
@@ -365,7 +365,7 @@ d3.json(link).then(function(data) {
     };
 
     // select the drop down menu to call a function to chart the option selected
-    d3.selectAll("#selAttribute").on("change", optionChanged);
+    d3.selectAll("#selAttributePie").on("change", optionChangedPie);
 });
 
 
