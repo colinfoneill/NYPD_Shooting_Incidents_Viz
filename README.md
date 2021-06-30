@@ -7,7 +7,14 @@ Retrieve public 2019 NYPD shooting incident data, and parse through json data us
 https://catalog.data.gov/dataset/nypd-shooting-incident-data-historic
 
 ## Charts
+Heatmap
 ![Heatmap](Static/img/heatmap.PNG)
+
+Bar Chart
+![Bar Chart](Static/img/bar_chart.PNG)
+
+Pie Chart
+![Pie Chart](Static/img/pie_chart.PNG)
 
 
 ## Deployment
